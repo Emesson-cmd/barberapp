@@ -290,7 +290,6 @@ export default ({ show, setShow, user, serviceSelected }) => {
 
             let availability = user.available.filter(e=>e.date === selDate)
 
-            console.log("availability", availability)
             if(availability.length > 0){
                 setListHours( availability[0].hours )
             }
