@@ -84,7 +84,6 @@ export default {
      */
     getBarbers: async (lat=null, lng=null, address=null) => { 
         const token = await AsyncStorage.getItem("token") // Pega o token do AsyncStorage
-        console.log("TOKEN", token)       
         const req = await fetch(`${BASE_API}/barbers?token=${token}&lat=${lat}&lng=${lng}&address=${address}`) /** Faz uma requisição passando como parâmetro o token */
         const json = await req.json(); /** Transforma a requisição em um JSON */
         return json;
@@ -93,7 +92,6 @@ export default {
         const token = await AsyncStorage.getItem("token") // Pega o token do AsyncStorage
         const req = await fetch(`${BASE_API}/barber/${id}?token=${token}`) /** Faz uma requisição passando como parâmetro o token */
         const json = await req.json(); /** Transforma a requisição em um JSON */
-        console.log(json)
         return json;
     },
     /** 
@@ -107,9 +105,37 @@ export default {
                 Accept: 'application/json',
                 'Content-Type': 'application/json'
             },
-            body: JSON.stringify({barber: barberId})
+            body: JSON.stringify({token, barber: barberId})
         });
         const json = await req.json();
         return json; /** retorna vários dados do usuário: */
+    },
+    setAppointment: async (
+        userId,
+        service,
+        selectedYear,
+        selectedMonth,
+        selectedDay,
+        selectedHour
+    ) => {
+        const token = await AsyncStorage.getItem("token")
+        const req = await fetch(`${BASE_API}/user/appointment`, {
+            method: 'POST',
+            headers: {
+                Accept: 'application/json',
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({
+                token,
+                id: userId,
+                service,
+                year: selectedYear,
+                month: selectedMonth,
+                day: selectedDay,
+                hour: selectedHour
+            })
+        });
+        const json = await req.json();
+        return json;
     }
 };

@@ -42,7 +42,6 @@ export default () => {
     const handleSignClick = async () => {
         if(nameField != "" && emailField != "" && passwordField != "") {
             let json = await Api.signUp(nameField, emailField, passwordField);
-            console.log(json)
 
             if (json.token) {
                 /** Salva o token no AsyncStorage */
