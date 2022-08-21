@@ -7,6 +7,15 @@ Este é um projeto desenvolvido junto com Bonieky Lacerda na live no Youtube. É
 ![Amostra 04](https://user-images.githubusercontent.com/80784767/185814883-eb291c7c-14cf-4389-9f20-f34c0658e0de.png)
 ![Amostra 03](https://user-images.githubusercontent.com/80784767/185814851-b9fa619c-85c4-4689-8326-abe15c06974d.png)
 
+## Principais funcionalidades e características do sistema
+
+- Consumo de API
+- Login de cliente
+- Cadastro de cliente
+- Encontrar barbeiros utilizando localização ou endereço
+- Escolher diferentes barbearias
+- Realizar agendamento em barbearia escolhendo barbeiro, serviço, data e hora
+
 ## Bibliotecas utilizadas no projeto
 
 - styled-components
@@ -23,15 +32,6 @@ Este é um projeto desenvolvido junto com Bonieky Lacerda na live no Youtube. É
 - react-native-swiper 
 - react-native-svg 
 - react-native-svg-transformer
-
-## Principais funcionalidades e características do sistema
-
-- Consumo de API
-- Login de cliente
-- Cadastro de cliente
-- Encontrar barbeiros utilizando localização ou endereço
-- Escolher diferentes barbearias
-- Realizar agendamento em barbearia escolhendo barbeiro, serviço, data e hora
 
 ## Como rodar na sua máquina
 
