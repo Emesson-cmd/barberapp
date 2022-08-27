@@ -28,6 +28,7 @@ export default () => (
         screenOptions={{
             headerShown: false
         }}
+        initialRouteName="Profile"
     >
         <Tab.Screen name="Home" component={Home} />
         <Tab.Screen name="Search" component={Search} />

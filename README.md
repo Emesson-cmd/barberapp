@@ -50,3 +50,12 @@ Este é um projeto desenvolvido junto com Bonieky Lacerda na live no Youtube. É
 - https://www.youtube.com/watch?v=wdvxNgGV0sU&t=1s
 - https://www.youtube.com/watch?v=kk_pGWBOkc4&t=12311s
 - https://api.b7web.com.br/devbarber/api
+
+## Cores
+
+Branco: FFFFFF
+Preto: 000000
+Azul marinho 1: 4EADBE
+Azul marinho 2: 63C2D1
+Azul marinho escuro: 268596
+

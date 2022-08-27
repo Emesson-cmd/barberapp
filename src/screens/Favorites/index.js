@@ -1,11 +1,83 @@
-import React from 'react'
-import { Text } from 'react-native'
-import { Container } from './styles'
+import React, { useState } from 'react'
+import { RefreshControl } from 'react-native'
+import { useNavigation  } from '@react-navigation/native'
+import { 
+    Container,
+    FavoriteArea,
+    FavoriteText,
+    BarbersList,
+    BackButton,
+    LoadingIcon,
+    Scroller,
+} from './styles'
+
+import BackIcon from '../../assets/back.svg'
+
+import Api from "../../Api"
+
+import BarberItem from '../../components/BarberItem'
 
 export default () => {
+    const [list, setList] = useState([])
+    const [loading, setLoading] = useState(false)
+    const [refreshing, setRefreshing] = useState(false)
+
+    const navigation = useNavigation();
+    
+    const handleBackButton = () => {
+        navigation.goBack()
+    }
+
+    const handleBarberSearch = async () => {
+        /** 
+         * Deveria haver um API para que eu pudesse fazer a requisição
+         * de um barbeiro pelo que é favoritado
+         */
+        const res = await Api.getBarbers(null, null, null)
+
+        setLoading(true)
+
+        if(res.error == ""){
+            setList(res.data)
+        } else {
+            Alert.alert("Erro", "Houve um erro ao tentar buscar barbeiros: " + res.error)
+        }
+
+        setLoading(false)
+    }
+
+    const onRefresh = () => {
+        setRefreshing(false)
+        handleBarberSearch()
+    }
+
+    useState(()=>{
+        handleBarberSearch()
+    },[])
+    
     return (
         <Container>
-            <Text>Favorites</Text>
+            <Scroller refreshControl={
+                <RefreshControl refreshing={refreshing} onRefresh={onRefresh} />
+            }>
+                <FavoriteArea>
+                    <FavoriteText>Favoritos</FavoriteText>
+                </FavoriteArea>
+
+                <BarbersList>
+                    { 
+                        list.map((item, key)=>{
+                            return <BarberItem data={item} key={key} />
+                        })
+                    }
+                </BarbersList>
+
+                { loading && <LoadingIcon size="large" color="#FFFFFF" /> }
+
+                <BackButton onPress={handleBackButton}>
+                    <BackIcon width="44" height="44" fill="#FFFFFF" />
+                </BackButton>
+            </Scroller>
         </Container>
     )
 }

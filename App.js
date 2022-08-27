@@ -14,6 +14,8 @@ export default () => {
      * 
      * O NavigationContainer  é necessário pois ele vai gerenciar toda a navegação
      * das telas
+     * 
+     * O MainStack contêm todas as rotas da aplicação
      */
     <UserContextProvider>
       <NavigationContainer>

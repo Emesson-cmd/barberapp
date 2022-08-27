@@ -76,7 +76,7 @@ export default () => {
 
     const handleMesssageButtonClick = () => {
         /** 
-         * Reset significa que eu vou viajar par outra tela mas não
+         * Reset significa que eu vou viajar para outra tela mas não
          * terei possibilidade de voltar
          */
         navigation.reset({

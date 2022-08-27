@@ -1,5 +1,3 @@
-import { ActionSheetIOS } from "react-native";
-
 /**
  * Informações do usuário. Ex.: Quando o usuário estiver logado na aplicação,
  * aparecerá uma foto dele como ícone 

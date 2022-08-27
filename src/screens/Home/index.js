@@ -26,7 +26,6 @@ import BarberItem from "../../components/BarberItem"
 
 import SearchIcon from '../../assets/search.svg'
 import MyLocationIcon from '../../assets/my_location.svg'
-import { forceTouchGestureHandlerProps } from 'react-native-gesture-handler/lib/typescript/handlers/ForceTouchGestureHandler'
 
 /**
  * Refresh controll: puxa para baixo e atualiza conteúdo
@@ -96,7 +95,7 @@ export default () => {
              * data contem a lista de barbeiros
              * */
             setList(res.data)
-
+            console.log(res.data)
         } else {
             Alert.alert("Erro", res.error)
         }

@@ -88,6 +88,7 @@ export default () => {
             let json = await Api.getBarber(userInfo.id);
 
             if( json.error == "" ){
+                console.log(json.data)
                 setUserInfo(json.data)
                 setFavorited(json.data.favorited)
 
